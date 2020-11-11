@@ -1,5 +1,5 @@
 <?php 
-  include_once 'header.php';
+  include_once 'includes/header.php';
 ?>
 
 <section class="signup form">
@@ -11,8 +11,9 @@
     <input type="password" name="pwd" placeholder="Password...">
     <input type="password" name="pwdrepeat" placeholder="Repeat password...">
     <button type="submit" name="submit">Sign Up</button>
+    <p class="feedback"></p>
   </form>
 </section>
-
+  <script src="app.js"></script>
 </body>
 </html>

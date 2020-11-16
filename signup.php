@@ -2,16 +2,42 @@
   include_once 'includes/header.php';
 ?>
 
-<section class="signup form">
-  <h2>Sign Up</h2>
-  <form action="signup.inc.php" method="post">
-    <input type="text" name="name" placeholder="Full name...">
-    <input type="email" name="email" placeholder="Email...">
-    <input type="text" name="uid" placeholder="Username...">
-    <input type="password" name="pwd" placeholder="Password...">
-    <input type="password" name="pwdrepeat" placeholder="Repeat password...">
+<section class="signup container">
+  <div class="header">
+    <h2>Sign Up</h2>
+  </div>
+  <form action="signup.inc.php" method="post" name="signup">
+    <div class="form-control">
+      <label for="full name">Full name</label>
+      <input type="text" name="fullName" placeholder="Full name...">
+      <small>Error</small>
+    </div>
+
+    <div class="form-control">
+      <label for="Email">Email</label>
+      <input type="email" name="email" placeholder="Email...">
+      <small>Error</small>
+    </div>
+
+    <div class="form-control">
+      <label for="username">Username</label>
+      <input type="text" name="uid" placeholder="Username...">
+      <small>Error</small>
+    </div>
+
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input type="password" name="pwd" placeholder="Password...">
+      <small>Error</small>
+    </div>
+
+    <div class="form-control">
+      <label for="repeat password">Repeat password</label>
+      <input type="password" name="rpwd" placeholder="Repeat password...">
+      <small>Error</small>
+    </div>
+
     <button type="submit" name="submit">Sign Up</button>
-    <p class="feedback"></p>
   </form>
 </section>
   <script src="app.js"></script>

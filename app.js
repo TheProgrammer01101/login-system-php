@@ -42,8 +42,6 @@ function checkInputs() {
 
   if(passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
-  } else if(!isPassword(passwordValue)) {
-    setErrorFor(password, 'Password is invalid ')
   } else{
     setSuccessFor(password);
   }
@@ -76,9 +74,7 @@ function isFullName(fullName){
   return /^[a-zA-Z]+ [a-zA-Z]+$/.test(fullName)
 }
 
-function isPassword(password) {
-  return /0-9A-Za-z/.test(password);
-}
+
 
 
 

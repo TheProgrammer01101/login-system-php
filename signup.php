@@ -1,5 +1,5 @@
 <?php 
-  include_once 'includes/header.php';
+  include_once 'includes/templates/header.php';
 ?>
 
 <section class="signup container">

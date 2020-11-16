@@ -44,14 +44,14 @@ function checkInputs() {
 		setErrorFor(password, 'Password cannot be blank');
   } else if(!isPassword(passwordValue)) {
     setErrorFor(password, 'Password is invalid ')
-  } else if(passwordValue !== repeatPasswordValue) {
-		setErrorFor(repeatPassword, 'Passwords does not match');
-	} else{
+  } else{
     setSuccessFor(password);
   }
   if(repeatPasswordValue === '') {
 		setErrorFor(repeatPassword, 'Please confirm the passowrd');
-  } else{
+  } else if(passwordValue !== repeatPasswordValue) {
+		setErrorFor(repeatPassword, 'Passwords does not match');
+	} else{
     setSuccessFor(repeatPassword);
   }
 }

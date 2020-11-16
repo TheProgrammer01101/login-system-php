@@ -68,7 +68,7 @@ section.container {
 
 .form-control {
   position: relative;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .form-control small {
@@ -92,17 +92,12 @@ button {
 /* error class */
 .form-control.error small {
 	visibility: visible;
-}
-
-
+} 
 .form-control.error input {
   animation: shake 0.3s;
   animation-iteration-count: 2;
   border-color: #ff0000;
-}
-
-
-@keyframes shake {
+} @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }

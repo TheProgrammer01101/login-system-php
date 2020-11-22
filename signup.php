@@ -39,6 +39,7 @@
 
     <button type="submit" name="submit">Sign Up</button>
   </form>
+  <div id="test"></div>
 </section>
   <script src="app.js"></script>
 </body>

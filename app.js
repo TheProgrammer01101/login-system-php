@@ -8,7 +8,6 @@ const submitButton = signupForm.submit;
 
 const allFormControl = document.querySelectorAll('.form-control');
 
-
 // let httpRequest = new XMLHttpRequest();
 // let testDiv = document.getElementById('test');
 //   document.getElementById("ajaxButton").onclick = function () {
@@ -38,20 +37,16 @@ const allFormControl = document.querySelectorAll('.form-control');
 
 signupForm.addEventListener('submit', function (e) {
   let allowSubmit = false;
-  let count;
+  let numberOfSuccessInput = 0;
   checkInputs();
-  for (x = 0; x < allFormControl.length; x++) {
-    // console.log(allFormControl[x]);
-    if (allFormControl[x].classList.contains("success")) {
-      count++;
-      console.log("s")
-      if(count == allFormControl.length - 1)
-      allowSubmit = true;
-    }
-  }
-  if(allowSubmit == false) {
+  allFormControl.forEach(formControl => {
+    if (formControl.classList.contains("success"))
+      numberOfSuccessInput++;
+      if(numberOfSuccessInput == allFormControl.length)
+      allowSubmit = true;    
+  });
+  if(allowSubmit == false)
     e.preventDefault();
-  }
 })
 
 function checkInputs() {

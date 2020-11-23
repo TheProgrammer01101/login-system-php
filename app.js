@@ -5,48 +5,31 @@ const username = signupForm.uid;
 const password = signupForm.pwd;
 const repeatPassword = signupForm.rpwd;
 const submitButton = signupForm.submit;
-
 const allFormControl = document.querySelectorAll('.form-control');
 
-// let httpRequest = new XMLHttpRequest();
-// let testDiv = document.getElementById('test');
-//   document.getElementById("ajaxButton").onclick = function () {
-//     var userName = document.getElementById("ajaxTextbox").value;
-//     makeRequest('validate.php', userName);
-//   };
+let testDiv = document.getElementById('test');
 
-//   function makeRequest(url, userName) {
-
-
-//     httpRequest.onreadystatechange = alertContents;
-//     httpRequest.open('POST', url);
-//     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//     httpRequest.send('userName=' + encodeURIComponent(userName));
-//   }
-
-//   function alertContents() {
-//   if (httpRequest.readyState === XMLHttpRequest.DONE) {
-//     if (httpRequest.status === 200) {
-//       var response = JSON.parse(httpRequest.responseText);
-//       testDiv.innerHTML = (response.computedString);
-//     } else {
-//       alert('There was a problem with the request.');
-//     }
-//   }
-// }
+const xhr = new XMLHttpRequest();
 
 signupForm.addEventListener('submit', function (e) {
-  let allowSubmit = false;
-  let numberOfSuccessInput = 0;
+  e.preventDefault();
   checkInputs();
+  let numberOfSuccessInput = 0;
   allFormControl.forEach(formControl => {
     if (formControl.classList.contains("success"))
       numberOfSuccessInput++;
-      if(numberOfSuccessInput == allFormControl.length)
-      allowSubmit = true;    
-  });
-  if(allowSubmit == false)
-    e.preventDefault();
+      if(numberOfSuccessInput == allFormControl.length) {
+        xhr.onload = function () {
+          testDiv.innerHTML = this.responseText;
+        }
+        xhr.open("POST", "includes/scripts/validate.php");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+        
+        xhr.send(`name= ${fullName.value} & email=${email.value}
+         & uid=${username.value} & pwd=${password.value} & rpwd=${repeatPassword.value}`);
+         
+      }
+  });    
 })
 
 function checkInputs() {

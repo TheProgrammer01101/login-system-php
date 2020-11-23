@@ -22,10 +22,10 @@ signupForm.addEventListener('submit', function (e) {
         xhr.onload = function () {
           testDiv.innerHTML = this.responseText;
         }
-        xhr.open("POST", "includes/scripts/validate.php");
+        xhr.open("POST", "includes/scripts/connect.php");
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         
-        xhr.send(`name= ${fullName.value} & email=${email.value}
+        xhr.send(`fullName= ${fullName.value} & email=${email.value}
          & uid=${username.value} & pwd=${password.value} & rpwd=${repeatPassword.value}`);
          
       }

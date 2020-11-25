@@ -6,7 +6,6 @@ let password;
 let repeatPassword;
 let submitButton;
 
-let xhrQuery;
 let filePath;
 
 function signUpAissgn () {
@@ -19,15 +18,14 @@ function signUpAissgn () {
   submitButton = signForm.submit;
 
   filePath = "signUp.inc.php";
-  xhrQuery = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`; 
 }
 
 function signInAssign() {
   signForm = document.forms.signIn;
-  email = signForm.email;
   password = signForm.pwd;
+  email = signForm.email;
+  submitButton = signForm.submit;
   filePath = "signIn.inc.php";
-  xhrQuery = (`email=${email.value}&pwd=${password.value}`);
 }
 
 
@@ -40,20 +38,26 @@ const page = path.substring(path.lastIndexOf('/') + 1);
 const allFormControl = document.querySelectorAll('.form-control');
 let testDiv = document.getElementById('test');
 if(page == "signup.php"){
-   signUpAissgn();
-   
+   signUpAissgn(); 
 }
 else if(page  == "signin.php"){
-  alert("in");
   signInAssign();
 }
 
-
 const xhr = new XMLHttpRequest();
+
 
 signForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  checkInputs();
+  let xhrQuery;
+  if(signForm.classList.contains('login')) {
+    checkLogIn();
+    xhrQuery = `email=${email.value}&pwd=${password.value}`;
+  }
+  else {
+    checkInputs();
+    xhrQuery  = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
+  }
   let numberOfSuccessInput = 0;
   allFormControl.forEach(formControl => {
     if (formControl.classList.contains("success"))
@@ -64,13 +68,30 @@ signForm.addEventListener('submit', function (e) {
         }
         xhr.open("POST", `includes/scripts/${filePath}`);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-        
         xhr.send(xhrQuery);
          
       }
   });    
 })
 
+function checkLogIn() {
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+
+    if (emailValue === '') {
+      setErrorFor(email, 'Email cannot be blank');
+    } else if (!isEmail(emailValue)) {
+      setErrorFor(email, 'Not a valid email');
+    } else {
+      setSuccessFor(email);
+    }
+
+    if (passwordValue === '') {
+      setErrorFor(password, 'Password cannot be blank');
+    } else {
+      setSuccessFor(password);
+    }
+}
 function checkInputs() {
   const fullNameValue = fullName.value.trim();
   const emailValue = email.value.trim();

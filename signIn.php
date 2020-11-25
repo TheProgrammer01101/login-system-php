@@ -6,7 +6,7 @@
   <div class="header">
     <h2>Sign In</h2>
   </div>
-  <form name="signIn">
+  <form name="signIn" class="login">
     <div class="form-control">
       <label for="Email">Email</label>
       <input type="email" name="email" placeholder="Email...">

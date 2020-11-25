@@ -22,6 +22,6 @@
   </form>
   <div id="test"></div>
 </section>
-<script src="signIn.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,16 +1,57 @@
-let signUpForm = document.forms.signUp;
-const fullName = signUpForm.fullName;
-const email = signUpForm.email;
-const username = signUpForm.uid;
-const password = signUpForm.pwd;
-const repeatPassword = signUpForm.rpwd;
-const submitButton = signUpForm.submit;
+let signForm;
+let fullName;
+let email;
+let username;
+let password;
+let repeatPassword;
+let submitButton;
+
+let xhrQuery;
+let filePath;
+
+function signUpAissgn () {
+  signForm = document.forms.signUp;
+  fullName = signForm.fullName;
+  email = signForm.email;
+  username = signForm.uid;
+  password = signForm.pwd;
+  repeatPassword = signForm.rpwd;
+  submitButton = signForm.submit;
+
+  filePath = "signUp.inc.php";
+  xhrQuery = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`; 
+}
+
+function signInAssign() {
+  signForm = document.forms.signIn;
+  email = signForm.email;
+  password = signForm.pwd;
+  filePath = "signIn.inc.php";
+  xhrQuery = (`email=${email.value}&pwd=${password.value}`);
+}
+
+
+
+const path = window.location.pathname;
+const page = path.substring(path.lastIndexOf('/') + 1);
+
+
+
 const allFormControl = document.querySelectorAll('.form-control');
 let testDiv = document.getElementById('test');
+if(page == "signup.php"){
+   signUpAissgn();
+   
+}
+else if(page  == "signin.php"){
+  alert("in");
+  signInAssign();
+}
+
 
 const xhr = new XMLHttpRequest();
 
-signUpForm.addEventListener('submit', function (e) {
+signForm.addEventListener('submit', function (e) {
   e.preventDefault();
   checkInputs();
   let numberOfSuccessInput = 0;
@@ -21,10 +62,10 @@ signUpForm.addEventListener('submit', function (e) {
         xhr.onload = function () {
           testDiv.innerHTML = this.responseText;
         }
-        xhr.open("POST", "includes/scripts/signUp.inc.php");
+        xhr.open("POST", `includes/scripts/${filePath}`);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         
-        xhr.send(`fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`);
+        xhr.send(xhrQuery);
          
       }
   });    

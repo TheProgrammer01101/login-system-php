@@ -41,6 +41,6 @@
   </form>
   <div id="test"></div>
 </section>
-  <script src="signUp.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

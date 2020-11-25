@@ -6,7 +6,7 @@
   <div class="header">
     <h2>Sign Up</h2>
   </div>
-  <form method="post" name="signup">
+  <form name="signUp">
     <div class="form-control">
       <label for="full name">Full name</label>
       <input type="text" name="fullName" id="fullName" placeholder="Full name...">
@@ -41,6 +41,6 @@
   </form>
   <div id="test"></div>
 </section>
-  <script src="app.js"></script>
+  <script src="signUp.js"></script>
 </body>
 </html>

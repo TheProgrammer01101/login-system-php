@@ -1,17 +1,16 @@
-let signupForm = document.forms.signup;
-const fullName = signupForm.fullName;
-const email = signupForm.email;
-const username = signupForm.uid;
-const password = signupForm.pwd;
-const repeatPassword = signupForm.rpwd;
-const submitButton = signupForm.submit;
+let signUpForm = document.forms.signUp;
+const fullName = signUpForm.fullName;
+const email = signUpForm.email;
+const username = signUpForm.uid;
+const password = signUpForm.pwd;
+const repeatPassword = signUpForm.rpwd;
+const submitButton = signUpForm.submit;
 const allFormControl = document.querySelectorAll('.form-control');
-
 let testDiv = document.getElementById('test');
 
 const xhr = new XMLHttpRequest();
 
-signupForm.addEventListener('submit', function (e) {
+signUpForm.addEventListener('submit', function (e) {
   e.preventDefault();
   checkInputs();
   let numberOfSuccessInput = 0;
@@ -22,11 +21,10 @@ signupForm.addEventListener('submit', function (e) {
         xhr.onload = function () {
           testDiv.innerHTML = this.responseText;
         }
-        xhr.open("POST", "includes/scripts/connect.php");
+        xhr.open("POST", "includes/scripts/signUp.inc.php");
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         
-        xhr.send(`fullName= ${fullName.value} & email=${email.value}
-         & uid=${username.value} & pwd=${password.value} & rpwd=${repeatPassword.value}`);
+        xhr.send(`fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`);
          
       }
   });    

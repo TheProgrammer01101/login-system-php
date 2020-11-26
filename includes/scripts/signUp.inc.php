@@ -6,7 +6,6 @@
   $username = $_POST['uid'];
   $passinput = $_POST['pwd'];
   $hashedpwd = password_hash($passinput, PASSWORD_DEFAULT);
-  echo($hashedpwd);
 
   function emailExists($pdo, $email) {
     $stmt = $pdo->prepare("SELECT email FROM system_users WHERE email=?");

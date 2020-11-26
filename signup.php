@@ -41,6 +41,6 @@
   </form>
   <div id="test"></div>
 </section>
-  <script src="app.js"></script>
-</body>
-</html>
+<?php 
+  include_once 'includes/templates/footer.php';
+?>

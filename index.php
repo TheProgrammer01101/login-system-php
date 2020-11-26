@@ -8,5 +8,6 @@
     <div class="boxes">Life</div>
   </div>
 </section>
-</body>
-</html>
+<?php 
+  include_once 'includes/templates/footer.php';
+?>

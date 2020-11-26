@@ -5,7 +5,7 @@
   $password = $_POST["pwd"];
 
   $stmt = $pdo->prepare("SELECT * FROM system_users WHERE email=?");
-  $stmt->execute([$email]);
+  $stmt->execute(array($email));
   $users = $stmt->fetchAll();
 
   var_dump($users[0][1]);

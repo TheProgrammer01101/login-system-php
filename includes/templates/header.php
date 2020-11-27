@@ -9,8 +9,8 @@
 <body>
   <nav>
     <ul class="links">
-      <li><a href="index.php">Home</a></li>
-      <li><a href="signup.php">Sign up</a></li>
-      <li><a href="signin.php">Sign in</a></li>
+      <li><a href="?page=home">Home</a></li>
+      <li><a href="?page=signup">Sign up</a></li>
+      <li><a href="?page=signin">Sign in</a></li>
     </ul>
   </nav>

@@ -8,10 +8,6 @@
   $stmt->execute(array($email));
   $users = $stmt->fetchAll();
 
-  var_dump($users[0][1]);
-  var_dump($users[0][3]);
-  var_dump(phpversion());
-
   if (isset($users[0][1])) {
       if (password_verify($password, $users[0][3])) {
           echo "valid login";

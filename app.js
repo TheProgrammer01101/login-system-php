@@ -1,4 +1,4 @@
-let signForm;
+let signForm = document.forms;
 let fullName;
 let email;
 let username;
@@ -7,6 +7,9 @@ let repeatPassword;
 let submitButton;
 
 let filePath;
+
+const allFormControl = document.querySelectorAll('.form-control');
+let testDiv = document.getElementById('test');
 
 function signUpAissgn () {
   signForm = document.forms.signUp;
@@ -26,37 +29,33 @@ function signInAssign() {
   email = signForm.email;
   submitButton = signForm.submit;
   filePath = "signIn.inc.php";
+  
 }
 
 
+// const path = window.location.pathname;
+// const page = path.substring(path.lastIndexOf('/') + 1);
 
-const path = window.location.pathname;
-const page = path.substring(path.lastIndexOf('/') + 1);
-
-
-
-const allFormControl = document.querySelectorAll('.form-control');
-let testDiv = document.getElementById('test');
-if(page == "signup.php"){
-   signUpAissgn(); 
+const form = signForm[0];
+if(form.classList.contains("signUp")){
+   signUpAissgn();
 }
-else if(page  == "signin.php"){
+else if(form.classList.contains("signIn")){
   signInAssign();
 }
 
 const xhr = new XMLHttpRequest();
 
-
 signForm.addEventListener('submit', function (e) {
   e.preventDefault();
   let xhrQuery;
-  if(signForm.classList.contains('login')) {
+  if(signForm.classList.contains('signIn')) {
     checkLogIn();
     xhrQuery = `email=${email.value}&pwd=${password.value}`;
   }
   else {
     checkInputs();
-    xhrQuery  = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
+    xhrQuery  = `fullName'=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
   }
   let numberOfSuccessInput = 0;
   allFormControl.forEach(formControl => {

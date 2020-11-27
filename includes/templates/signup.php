@@ -6,7 +6,7 @@
   <div class="header">
     <h2>Sign Up</h2>
   </div>
-  <form name="signUp">
+  <form name="signUp" class="signUp">
     <div class="form-control">
       <label for="full name">Full name</label>
       <input type="text" name="fullName" id="fullName" placeholder="Full name...">

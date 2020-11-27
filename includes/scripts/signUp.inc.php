@@ -6,6 +6,7 @@
   $username = $_POST['uid'];
   $passinput = $_POST['pwd'];
   $hashedpwd = password_hash($passinput, PASSWORD_DEFAULT);
+  var_dump($fullName); // a bug; $fullName is null;
 
   function emailExists($pdo, $email) {
     $stmt = $pdo->prepare("SELECT email FROM system_users WHERE email=?");
@@ -17,7 +18,7 @@ if (emailExists($pdo, $email) == true) {
 }
 
 else if(emailExists($pdo, $email) == false) {
-  $query_str = "INSERT INTO system_users(name, email, username, password) VALUES(:fullName, :email, :username, :password)";
+  $query_str = "INSERT INTO system_users('name', 'email', 'username', 'password') VALUES(:fullName, :email, :username, :password)";
   $stmt = $pdo->prepare($query_str);
   $stmt->execute(['fullName'=> $fullName, 'email' => $email, 'username' => $username, 'password' => $hashedpwd]);
   print "signed up!";

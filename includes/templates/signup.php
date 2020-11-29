@@ -1,7 +1,3 @@
-<?php 
-  include_once 'includes/templates/header.php';
-?>
-
 <section class="signup container">
   <div class="header">
     <h2>Sign Up</h2>
@@ -41,7 +37,3 @@
   </form>
   <div id="test"></div>
 </section>
-<?php 
-  #include_once 'includes/templates/footer.php';
-# already in index.php
-?>

@@ -19,7 +19,6 @@ function signUpAissgn () {
   password = signForm.pwd;
   repeatPassword = signForm.rpwd;
   submitButton = signForm.submit;
-
   filePath = "signUp.inc.php";
 }
 
@@ -41,7 +40,7 @@ if(form.classList.contains("signUp")){
    signUpAissgn();
 }
 else if(form.classList.contains("signIn")){
-  signInAssign();
+  signInAssign(); debugger
 }
 
 const xhr = new XMLHttpRequest();
@@ -55,7 +54,7 @@ signForm.addEventListener('submit', function (e) {
   }
   else {
     checkInputs();
-    xhrQuery  = `fullName'=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
+    xhrQuery  = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
   }
   let numberOfSuccessInput = 0;
   allFormControl.forEach(formControl => {

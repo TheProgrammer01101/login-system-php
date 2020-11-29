@@ -42,5 +42,6 @@
   <div id="test"></div>
 </section>
 <?php 
-  include_once 'includes/templates/footer.php';
+  #include_once 'includes/templates/footer.php';
+# already in index.php
 ?>

@@ -11,11 +11,14 @@
   if (isset($users[0][1])) {
       if (password_verify($password, $users[0][3])) {
           echo "valid login";
+          # now lets include some dummy template instead of just a string
       } else {
           echo "invalid pass";
+          # now lets include some dummy template instead of just a string
       }
   } else {
       echo "invalid email";
+      # now lets include some dummy template instead of just a string
   }
 
 ?>

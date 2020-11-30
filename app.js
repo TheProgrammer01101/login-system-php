@@ -50,11 +50,11 @@ signForm.addEventListener('submit', function (e) {
   let xhrQuery;
   if(signForm.classList.contains('signIn')) {
     checkLogIn();
-    xhrQuery = `email=${email.value}&pwd=${password.value}`;
+    xhrQuery = `email=${email.value.trim()}&pwd=${password.value.trim()}`;
   }
   else {
     checkInputs();
-    xhrQuery  = `fullName=${fullName.value}&email=${email.value}&uid=${username.value}&pwd=${password.value}&rpwd=${repeatPassword.value}`;
+    xhrQuery  = `fullName=${fullName.value.trim()}&email=${email.value.trim()}&uid=${username.value.trim()}&pwd=${password.value.trim()}&rpwd=${repeatPassword.value.trim()}`;
   }
   let numberOfSuccessInput = 0;
   allFormControl.forEach(formControl => {

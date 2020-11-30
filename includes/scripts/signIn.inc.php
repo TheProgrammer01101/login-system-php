@@ -10,15 +10,13 @@
 
   if (isset($users[0][1])) {
       if (password_verify($password, $users[0][3])) {
-          echo "valid login";
-          # now lets include some dummy template instead of just a string
+          $yourName = $users[0][0];
+          include_once "/Applications/MAMP/htdocs/System/includes/templates/validTemp.php"; 
       } else {
-          echo "invalid pass";
-          # now lets include some dummy template instead of just a string
+          include_once "/Applications/MAMP/htdocs/System/includes/templates/invalidPassTemp.php";
       }
   } else {
-      echo "invalid email";
-      # now lets include some dummy template instead of just a string
+      include_once "/Applications/MAMP/htdocs/System/includes/templates/invalidEmailTemp.php";
   }
 
 ?>

@@ -56,20 +56,23 @@ signForm.addEventListener('submit', function (e) {
     checkInputs();
     xhrQuery  = `fullName=${fullName.value.trim()}&email=${email.value.trim()}&uid=${username.value.trim()}&pwd=${password.value.trim()}&rpwd=${repeatPassword.value.trim()}`;
   }
-  let numberOfSuccessInput = 0;
-  allFormControl.forEach(formControl => {
-    if (formControl.classList.contains("success"))
-      numberOfSuccessInput++;
-      if(numberOfSuccessInput == allFormControl.length) {
-        xhr.onload = function () {
-          testDiv.innerHTML = this.responseText;
-        }
-        xhr.open("POST", `includes/scripts/${filePath}`);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-        xhr.send(xhrQuery);
+
+  xhr.onload = function () {
+    testDiv.innerHTML = this.responseText;
+  }
+  xhr.open("POST", `includes/scripts/${filePath}`);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+  xhr.send(xhrQuery);
+
+  // let numberOfSuccessInput = 0;
+  // allFormControl.forEach(formControl => {
+  //   if (formControl.classList.contains("success"))
+  //     numberOfSuccessInput++;
+  //     if(numberOfSuccessInput == allFormControl.length) {
+        
          
-      }
-  });    
+  //     }
+  // });    
 })
 
 function checkLogIn() {

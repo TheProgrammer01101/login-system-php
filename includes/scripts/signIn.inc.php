@@ -11,12 +11,12 @@
   if (isset($users[0][1])) {
       if (password_verify($password, $users[0][3])) {
           $yourName = $users[0][0];
-          include_once "/Applications/MAMP/htdocs/System/includes/templates/validTemp.php"; 
+          include_once "../templates/validTemp.php"; 
       } else {
-          include_once "/Applications/MAMP/htdocs/System/includes/templates/invalidPassTemp.php";
+          include_once "../templates/invalidPassTemp.php";
       }
   } else {
-      include_once "/Applications/MAMP/htdocs/System/includes/templates/invalidEmailTemp.php";
+      include_once "../templates/invalidEmailTemp.php";
   }
 
 ?>
